@@ -17,43 +17,118 @@
         </ul>
     </nav>
 
-    <form>
-        <p id="titre_form">Informations personnelles</p><br />
-        <label for="nom"> Nom </label>
-        <input type="text" id="nom" name="nom" /><br/>
-        <label for="prenom">Prénom</label>
-        <input type="text" id="prenom" name="prenom" /><br />
-        <label for="sexe"> Sexe </label>
-        <select id="sexe" name="sexe">
-            <option value = "masculin">Masculin</option>
-            <option value = "feminin">Féminin</option>
-        </select><br/>
-        <label for="adresse"> Adresse</label>
-        <input type="text" id="adresse" name="adresse" /><br>
-        <label for ="code_postal">Code Postal</label>
-        <input type="text" id="code_postal" name="code_postal" /><br />
-        <label for="ville">Ville</label>
-        <input type="text" id="ville" name="ville"/>
-        <label for="adresse_mail">Adresse mail</label><br />
-        <input type="email" id="adresse_mail" name="adresse_mail" /><br />
-        
-        <p id ="titre_form">Information formation suivie</p> <br />
-        <label for="date"> Date début de formation</label>
-        <input type="date" id="date" name="date" /> <br />
-        <label for="formation_suivie">Formation suivie</label>
-        <select id="formation_suivie" name="formation_suivie">
-            <option value ="cobol">Cobol</option>
-            <option value = "csharp">C#</option>
-        </select><br />
-        
-        <p id="titre_form">Avis sur la formation</p><br />
-        <label for="formation_cobol"> Formation Cobol</label>
-        <input type="text" id="formation_cobol" name="formation_cobol" /><br />
-        <label for="formation_cs">Formation C#</label>
-        <input type="text" id="formation_cs" name="formation_cs" /><br />
-        <input type="submit" id="submit" value="Valider" />
-    </form>
+    <div class="form"> 
+        <table id="info_perso">
+            <caption>Informations personnelles</caption>
+            <tr>
+                <td>
+                    <label for="nom"> Nom </label>
+                </td>
+                <td>
+                    <input type="text" id="nom" name="nom" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="prenom">Prénom</label>
+                </td>
+                <td>
+                    <input type="text" id="prenom" name="prenom" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="sexe"> Sexe </label>
+                </td>
+                <td>
+                    <select id="sexe" name="sexe">
+                        <option value ="selectionnez" selected="selected">Sélectionner un sexe</option>
+                        <option value="masculin">Masculin</option>
+                        <option value="feminin">Féminin</option>
+                        <option value="autre">Autre</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="adresse"> Adresse</label>
+                </td>
+                <td>
+                    <input type="text" id="adresse" name="adresse" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="code_postal">Code Postal</label>
+                </td>
+                <td>
+                    <input type="text" id="code_postal" name="code_postal" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="ville">Ville</label>
+                </td>
+                <td>
+                    <input type="text" id="ville" name="ville" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="adresse_mail">Adresse mail</label>
+                </td>
+                <td>
+                    <input type="email" id="adresse_mail" name="adresse_mail" />
+                </td>
+            </tr>
+        </table>
 
+        <table id="info_formation">
+            <caption>Information formation suivie</caption>
+            <tr>
+                <td>
+                    <label for="date"> Date début de formation</label>
+                </td>
+                <td>
+                    <input type="date" id="date" name="date" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="formation_suivie">Formation suivie</label>
+                </td>
+                <td>
+                    <select id="formation_suivie" name="formation_suivie"> 
+                        <option value ="select_formation" selected="selected">Sélectionner un cours</option>
+                        <option value ="cobol">Formation Cobol</option> 
+                        <option value = "csharp">Formation C#</option> 
+                        <option value ="double">Formation à double compétence </option>
+                    </select><br /> 
+                </td>
+            </tr>
+        </table>
+
+        <table id="avis">
+            <caption>Avis sur la formation</caption>
+            <tr>
+                <td>
+                    <label for="formation_cobol"> Formation Cobol</label>
+                </td>
+                <td>
+                <input type="text" id="formation_cobol" name="formation_cobol" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="formation_cs">Formation C#</label>
+                </td>
+                <td>
+                    <input type="text" id="formation_cs" name="formation_cs" />
+                </td>
+            </tr>
+        </table>
+        <input type="submit" id="submit" value="Valider" />
+    </div>
 
 </body>
 

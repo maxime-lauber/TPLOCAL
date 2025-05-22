@@ -1,4 +1,7 @@
-﻿.image {
+﻿html{
+    font-family: Arial;
+}
+.image {
     height: 150px;
     width: 150px;
     display: inline-block;
@@ -11,6 +14,7 @@ h1 {
     text-align: center;
     display: inline-block;
     vertical-align: middle;
+
 }
 
 nav {
@@ -31,24 +35,14 @@ a {
 }
 
 label {
-    display: inline-block;
-    float: left;
-    clear: left;
-    width: 250px;
-    text-align: right;
-    margin-bottom: 20px;
-    margin-right: 10px;
 }
 
-input {
-    display: inline-block;
-    float: left;
+table {
+    margin-left: 20px;
+    flex: 1;
 }
 
-p {
-    display: inline-block;
-    float: left;
-    clear: left;
+table, tr, td{
+    border: 1px solid black;
 }
-
 
