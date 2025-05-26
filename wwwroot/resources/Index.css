@@ -1,4 +1,8 @@
-﻿.image {
+﻿html {
+    font-family: Arial;
+}
+
+.image {
     height : 150px;
     width : 150px; 
     display:inline-block;

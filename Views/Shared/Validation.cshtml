@@ -1,0 +1,116 @@
+﻿@model TPLOCAL1.Models.AvisFormationModel
+@{
+    ViewData["h1"]= "Formulaire TP HN Avis";
+    Layout = "_Layout";
+}
+<head>
+    <title>Formulaire</title>
+    <link rel="stylesheet" href="~/resources/Validation.css" />
+</head>
+
+@* <header>
+    <img src="~/resources/GroupeHN.png" class="image" alt="GroupeHN" />
+    <h1>Formulaire TP HN Avis</h1>
+</header> *@
+
+<body>
+    @* <nav>
+        <ul>
+            <li> <a href="/Home/Index"> Accueil </a></li>
+            <li> <a href="/Home/Index/ListeAvis"> Liste des avis </a></li>
+        </ul>
+    </nav> *@
+
+
+    <form asp-action="Form" method="post">
+        <p>Votre formulaire a été pris en compte.</p>
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form">
+            <table id="info_perso">
+                <caption>Informations personnelles</caption>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Nom)</td>
+                    <td>
+                        @Html.DisplayFor(m => m.Nom)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Prenom)</td>
+                    <td>
+                        @Html.DisplayFor(m => m.Prenom)
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Sexe)</td>
+                    <td>
+                        @Html.DisplayFor(m => m.Sexe)
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Adresse)</td>
+                    <td>
+                        @Html.DisplayFor(m => m.Adresse)
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.CodePostal)</td>
+                    <td>
+                        @Html.DisplayFor(m => m.CodePostal)
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Ville)</td>
+                    <td>
+                        @Html.DisplayFor(m => m.Ville)
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.AdresseMail)</td>
+                    <td>
+                        @Html.DisplayFor(m => m.AdresseMail)
+                    </td>
+                </tr>
+            </table>
+
+            <table id="info_formation">
+                <caption>Information formation suivie</caption>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Date)</td>
+                    <td>
+                        @Model.Date?.ToString("dd/MM/yyyy")
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.FormationSuivie)</td>
+                    <td>
+                        @Html.DisplayFor(m => m.FormationSuivie)
+                    </td>
+                </tr>
+            </table>
+
+            <table id="avis">
+                <caption>Avis sur la formation</caption>
+                <tr>
+                    <td>@Html.LabelFor(m => m.FormationCobol)</td>
+                    <td>
+                        @Html.DisplayFor(m => m.FormationCobol)
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.FormationCS, "Formation C#")</td>
+                    <td>
+                        @Html.DisplayFor(m => m.FormationCS)
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
+</body>
+

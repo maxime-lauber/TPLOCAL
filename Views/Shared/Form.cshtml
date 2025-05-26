@@ -1,134 +1,132 @@
-﻿
+﻿@model TPLOCAL1.Models.AvisFormationModel
+@{
+    ViewData["h1"] = "Formulaire TP HN Avis";
+    Layout = "_Layout";
+}
 <head>
-    <title>Form</title>
+    <title>Formulaire</title>
     <link rel="stylesheet" href="~/resources/Form.css" />
 </head>
 
-<header>
-    <h1>Formulaire TP HN Avis</h1>
+@* <header>
     <img src="~/resources/GroupeHN.png" class="image" alt="GroupeHN" />
-</header>
+    <h1>Formulaire TP HN Avis</h1>
+</header> *@
 
 <body>
-    <nav>
+    @* <nav>
         <ul>
-            <li> <a href="/Home/Index/Form"> Remplir le formulaire </a></li>
+            <li> <a href="/Home/Index"> Accueil </a></li>
             <li> <a href="/Home/Index/Form"> Liste des avis </a></li>
         </ul>
-    </nav>
+    </nav> *@
 
-    <div class="form"> 
-        <table id="info_perso">
-            <caption>Informations personnelles</caption>
-            <tr>
-                <td>
-                    <label for="nom"> Nom </label>
-                </td>
-                <td>
-                    <input type="text" id="nom" name="nom" />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="prenom">Prénom</label>
-                </td>
-                <td>
-                    <input type="text" id="prenom" name="prenom" />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="sexe"> Sexe </label>
-                </td>
-                <td>
-                    <select id="sexe" name="sexe">
-                        <option value ="selectionnez" selected="selected">Sélectionner un sexe</option>
-                        <option value="masculin">Masculin</option>
-                        <option value="feminin">Féminin</option>
-                        <option value="autre">Autre</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="adresse"> Adresse</label>
-                </td>
-                <td>
-                    <input type="text" id="adresse" name="adresse" />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="code_postal">Code Postal</label>
-                </td>
-                <td>
-                    <input type="text" id="code_postal" name="code_postal" />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="ville">Ville</label>
-                </td>
-                <td>
-                    <input type="text" id="ville" name="ville" />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="adresse_mail">Adresse mail</label>
-                </td>
-                <td>
-                    <input type="email" id="adresse_mail" name="adresse_mail" />
-                </td>
-            </tr>
-        </table>
+    <form asp-action="Form" method="post">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form"> 
+            <table id="info_perso">
+                <caption>Informations personnelles</caption>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Nom)</td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Nom, new { @class = "form-control", @id = "nom" })
+                        @Html.ValidationMessageFor(m => m.Nom, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Prenom)</td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Prenom, new { @class = "form-control", @id = "prenom" })
+                        @Html.ValidationMessageFor(m => m.Prenom, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Sexe)</td>
+                    <td>
+                        @Html.DropDownListFor(m => m.Sexe, new SelectList(new[] {
+                            new { Value = "", Text = "Sélectionner un sexe" },
+                            new { Value = "masculin", Text = "Masculin" },
+                            new { Value = "feminin", Text = "Féminin" },
+                            new { Value = "autre", Text = "Autre" }
+                        }, "Value", "Text"), new { @id = "sexe", @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Sexe, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Adresse)</td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Adresse, new { @class = "form-control", @id = "adresse" })
+                        @Html.ValidationMessageFor(m => m.Adresse, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.CodePostal)</td>
+                    <td>
+                        @Html.TextBoxFor(m => m.CodePostal, new { @class = "form-control", @id = "code_postal" })
+                        @Html.ValidationMessageFor(m => m.CodePostal, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Ville)</td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Ville, new { @class = "form-control", @id = "ville" })
+                        @Html.ValidationMessageFor(m => m.Ville, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.AdresseMail)</td>
+                    <td>
+                        @Html.TextBoxFor(m => m.AdresseMail, new { @type = "email", @class = "form-control", @id = "adresse_mail" })
+                        @Html.ValidationMessageFor(m => m.AdresseMail, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+            </table>
 
-        <table id="info_formation">
-            <caption>Information formation suivie</caption>
-            <tr>
-                <td>
-                    <label for="date"> Date début de formation</label>
-                </td>
-                <td>
-                    <input type="date" id="date" name="date" />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="formation_suivie">Formation suivie</label>
-                </td>
-                <td>
-                    <select id="formation_suivie" name="formation_suivie"> 
-                        <option value ="select_formation" selected="selected">Sélectionner un cours</option>
-                        <option value ="cobol">Formation Cobol</option> 
-                        <option value = "csharp">Formation C#</option> 
-                        <option value ="double">Formation à double compétence </option>
-                    </select><br /> 
-                </td>
-            </tr>
-        </table>
+            <table id="info_formation">
+                <caption>Information formation suivie</caption>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Date)</td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Date, "{0:yyyy-MM-dd}", new { @type = "date", @class = "form-control", @id = "date", @max = "2021-01-01" })
+                        @Html.ValidationMessageFor(m => m.Date, "La date est obligatoire.", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.FormationSuivie)</td>
+                    <td>
+                        @Html.DropDownListFor(m => m.FormationSuivie, new SelectList(new[] {
+                            new { Value = "", Text = "Sélectionner un cours" },
+                            new { Value = "cobol", Text = "Formation Cobol" },
+                            new { Value = "csharp", Text = "Formation C#" },
+                            new { Value = "double", Text = "Formation à double compétence" }
+                        }, "Value", "Text"), new { @id = "formation_suivie", @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.FormationSuivie, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+            </table>
 
-        <table id="avis">
-            <caption>Avis sur la formation</caption>
-            <tr>
-                <td>
-                    <label for="formation_cobol"> Formation Cobol</label>
-                </td>
-                <td>
-                <input type="text" id="formation_cobol" name="formation_cobol" />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="formation_cs">Formation C#</label>
-                </td>
-                <td>
-                    <input type="text" id="formation_cs" name="formation_cs" />
-                </td>
-            </tr>
-        </table>
-        <input type="submit" id="submit" value="Valider" />
-    </div>
-
+            <table id="avis">
+                <caption>Avis sur la formation</caption>
+                <tr>
+                    <td>@Html.LabelFor(m => m.FormationCobol, "Formation Cobol")</td>
+                    <td>
+                        @Html.TextBoxFor(m => m.FormationCobol, new { @class = "form-control", @id = "formation_cobol" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.FormationCS, "Formation C#")</td>
+                    <td>
+                        @Html.TextBoxFor(m => m.FormationCS, new { @class = "form-control", @id = "formation_cs" })
+                    </td>
+                </tr>
+            </table>
+            <input type="submit" id="submit" value="Valider" />
+        </div>
+    </form>
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
 </body>
 

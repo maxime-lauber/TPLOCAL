@@ -1,0 +1,23 @@
+﻿
+
+<!DOCTYPE html>
+<html>
+<header>
+    <img src="~/resources/GroupeHN.png" class="image" alt="GroupeHN" />
+    <h1>@ViewData["h1"]</h1>
+</header>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/Home/Index">Accueil</a></li>
+            <li><a href="/Home/Index/Form">Formulaire</a></li>
+            <li><a href="/Home/Index/ListeAvis">Liste des avis</a></li>
+        </ul>
+    </nav>
+
+    <main role="main">
+        @RenderBody() 
+    </main>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

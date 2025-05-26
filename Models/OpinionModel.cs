@@ -15,10 +15,10 @@ namespace TPLOCAL1.Models
         /// Function that alow to recover the opinions list inside an xml file
         /// </summary>
         /// <param name="file">file path</param>
-        public List<Opinion> GetAvis(string file)
+        public List<OpinionModel> GetAvis(string file)
         {
             // instantiating empty list
-            List<Opinion> opinionList = new List<Opinion>();
+            List<OpinionModel> opinionList = new List<OpinionModel>();
 
             // Creation of an XMLDocument object that alow to recover datas from the file
             XmlDocument xmlDoc = new XmlDocument();
@@ -39,7 +39,7 @@ namespace TPLOCAL1.Models
                 string OpinionGiven = node["OpinionGiven"].InnerText;
 
                 // Creating the "Opinion" object to add to the results list.
-                Opinion opinion = new Opinion
+                OpinionModel opinion = new OpinionModel
                 {
                     LastName = LastName,
                     FirstName = FirstName,
@@ -62,7 +62,7 @@ namespace TPLOCAL1.Models
     /// Object that groups data related to reviews
     /// \nCan be modified
     /// </summary>
-    public class Opinion
+    public class OpinionModel
     {
         /// <summary>
         /// Last name
